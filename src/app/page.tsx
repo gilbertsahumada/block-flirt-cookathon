@@ -1,103 +1,113 @@
-import Image from "next/image";
+'use client'
+
+import { Heart, Sparkles, Zap } from 'lucide-react'
+import { ConnectButton } from '@/components/wallet/connect-button'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-primary">
+      {/* Header */}
+      <div className="px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: 'var(--accent)'}}>
+            <Heart className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-2xl font-bold text-primary">
+            BlockFlirt
+          </span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <ConnectButton />
+      </div>
+
+      {/* Hero Section */}
+      <div className="max-w-md mx-auto px-6 py-12">
+        {/* Main Card */}
+        <div className="bg-card rounded-3xl border overflow-hidden mb-8" style={{borderColor: 'var(--border)'}}>
+          {/* Header */}
+          <div className="px-8 py-12 text-center" style={{backgroundColor: 'var(--accent)'}}>
+            <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+              <Heart className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-2">Find Your Web3 Match</h1>
+            <p className="text-white/90 text-lg font-medium">Where your wallet meets your heart</p>
+          </div>
+          
+          {/* Content */}
+          <div className="p-8">
+            <div className="space-y-6">
+              {/* Feature 1 */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-6 h-6" style={{color: 'var(--accent)'}} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-primary mb-1">AI-Powered Analysis</h3>
+                  <p className="text-secondary text-sm">We analyze your onchain activity and social profiles to create your unique Love Persona</p>
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Heart className="w-6 h-6" style={{color: 'var(--accent)'}} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-primary mb-1">Smart Matching</h3>
+                  <p className="text-secondary text-sm">Find compatibility based on Web3 interests, personality traits, and shared values</p>
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-6 h-6" style={{color: 'var(--accent)'}} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-primary mb-1">Match NFTs</h3>
+                  <p className="text-secondary text-sm">When you find a 70%+ match, mint a unique NFT on Mantle to commemorate your connection</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 space-y-3">
+              <Link href="/auth" className="block">
+                <Button className="w-full btn-primary py-4 rounded-xl text-lg font-semibold">
+                  Start Matching
+                </Button>
+              </Link>
+              <Button className="w-full btn-secondary py-4 rounded-xl text-lg font-semibold">
+                Learn More
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="text-center space-y-4">
+          <div className="flex items-center justify-center gap-8">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">1K+</div>
+              <div className="text-sm text-secondary">Web3 Users</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">500+</div>
+              <div className="text-sm text-secondary">Matches Made</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">100+</div>
+              <div className="text-sm text-secondary">NFTs Minted</div>
+            </div>
+          </div>
+          
+          <p className="text-secondary text-sm px-4">
+            Join the first dating app built for the Web3 community. 
+            Find meaningful connections based on your digital life.
+          </p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }

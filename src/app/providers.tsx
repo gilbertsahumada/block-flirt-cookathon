@@ -13,8 +13,6 @@ if (!apiKey) {
   throw new Error("NEXT_PUBLIC_PARA_API_KEY is not set. Please set it in your .env.local file.");
 }
 
-console.log("Using API Key:", apiKey);
-
 export function Providers({
   children,
 }: Readonly<{

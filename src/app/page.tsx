@@ -1,7 +1,5 @@
 'use client'
-
 import { Heart, Sparkles, Zap } from 'lucide-react'
-import { ConnectButton } from '@/components/wallet/connect-button'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 

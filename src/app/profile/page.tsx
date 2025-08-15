@@ -8,7 +8,6 @@ import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import Link from 'next/link'
-import { useWallet } from '@getpara/react-sdk'
 
 // Mock user data - esto se reemplazaría con datos reales del usuario logueado
 const mockCurrentUser = {
@@ -51,7 +50,6 @@ const mockCurrentUser = {
 
 export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false)
-  const { data: wallet } = useWallet()
 
   return (
     <div className="min-h-screen bg-primary">

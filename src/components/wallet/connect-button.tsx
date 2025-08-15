@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { AtSign, User, ExternalLink, Loader2 } from "lucide-react";
+import { AtSign, ExternalLink, Loader2 } from "lucide-react";
 import { useWallet, useModal, useLogout } from "@getpara/react-sdk";
 
 export function ConnectButton() {

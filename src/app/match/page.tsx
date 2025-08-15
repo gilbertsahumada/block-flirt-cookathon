@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable  */
+
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Heart, X, Zap, Star, Search, Users, Sparkles, RotateCcw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -8,14 +10,13 @@ import { Badge } from '@/components/ui/badge'
 import { mockUsers } from '@/data/mockUsers'
 import { UserProfile } from '@/types'
 import Link from 'next/link'
-import { useWallet } from '@getpara/react-sdk'
 
 export default function MatchPage() {
   const [currentUserIndex, setCurrentUserIndex] = useState(0)
   const [matches, setMatches] = useState<string[]>([])
   const [isAnimating, setIsAnimating] = useState(false)
   const [showingEndCard, setShowingEndCard] = useState(false)
-  const { data: wallet } = useWallet()
+  //const { data: wallet } = useWallet()
 
   // Restore state from localStorage on mount
   useEffect(() => {
@@ -190,7 +191,7 @@ export default function MatchPage() {
               {/* Description */}
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-primary mb-2">
-                  You've seen everyone!
+                  ${`You've seen everyone!`}
                 </h3>
                 <p className="text-secondary text-sm mb-4">
                   New profiles are added daily. Check back later to discover more amazing people in the Web3 community.

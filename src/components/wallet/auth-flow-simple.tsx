@@ -11,7 +11,7 @@ import Link from 'next/link';
 export function AuthFlowSimple() {
   const [isConnecting, setIsConnecting] = useState(false);
   const { isLoading: accountLoading } = useAccount();
-  const { data: wallet, isLoading: walletLoading, isError, isPaused, isSuccess } = useWallet();
+  const { data: wallet, isLoading: walletLoading } = useWallet();
   const { openModal } = useModal();
   // Consider connected if we have a wallet address (userId may not always be present immediately)
   const isConnected = Boolean(wallet?.address);

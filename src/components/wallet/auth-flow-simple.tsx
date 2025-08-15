@@ -11,17 +11,17 @@ import Link from 'next/link';
 export function AuthFlowSimple() {
   const [isConnecting, setIsConnecting] = useState(false);
   const { isLoading: accountLoading } = useAccount();
-  const { data: wallet, isLoading: walletLoading } = useWallet();
+  const { data: wallet, isLoading: walletLoading, isError, isPaused, isSuccess } = useWallet();
   const { openModal } = useModal();
-  const isConnected = wallet?.address && wallet?.userId;
+  // Consider connected if we have a wallet address (userId may not always be present immediately)
+  const isConnected = Boolean(wallet?.address);
 
-
-  // Reset connecting state when connection is successful
+  // Reset connecting state when connection is successful or when loading completes
   useEffect(() => {
-    if (isConnected) {
+    if (isConnected || !walletLoading) {
       setIsConnecting(false);
     }
-  }, [isConnected]);
+  }, [isConnected, walletLoading]);
 
   const handleTwitterConnect = () => {
     setIsConnecting(true);
@@ -57,7 +57,7 @@ export function AuthFlowSimple() {
             </div>
             <h3 className="text-primary text-xl font-bold mb-3">Successfully Connected!</h3>
             <p className="text-secondary mb-6">
-              Your X account is connected. Now you can start matching!
+              Your wallet is connected. Now you can start matching!
             </p>
             <Link href="/match">
               <Button className="w-full btn-primary py-3 rounded-xl font-semibold">
@@ -78,10 +78,13 @@ export function AuthFlowSimple() {
                   <AtSign className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-primary font-medium">X (Twitter)</p>
-                  <p className="text-secondary text-sm">
-                    User ID: {wallet?.userId?.slice(0, 8)}...
-                  </p>
+                  <p className="text-primary font-medium">Wallet</p>
+                  {wallet?.userId && (
+                    <p className="text-secondary text-sm">User ID: {wallet.userId.slice(0, 8)}...</p>
+                  )}
+                  {wallet?.address && (
+                    <p className="text-secondary text-sm">Address: {wallet.address.slice(0, 6)}...{wallet.address.slice(-4)}</p>
+                  )}
                 </div>
               </div>
               <Badge className="bg-secondary text-primary border-0">
@@ -103,9 +106,9 @@ export function AuthFlowSimple() {
             <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{backgroundColor: 'var(--accent)'}}>
               <AtSign className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-primary text-xl font-bold mb-3">Connect your X account</h3>
+            <h3 className="text-primary text-xl font-bold mb-3">Connect your Wallet</h3>
             <p className="text-secondary">
-              Connect your X (Twitter) account to analyze your social profile and find better matches
+              Connect your Wallet to analyze your onchain activity and find better matches
             </p>
           </div>
 
@@ -121,12 +124,10 @@ export function AuthFlowSimple() {
               ) : (
                 <AtSign className="w-5 h-5 mr-2" />
               )}
-              {isConnecting ? 'Connecting...' : 'Connect with X'}
+              {isConnecting ? 'Connecting...' : 'Connect Powered by Para'}
             </Button>
             
-            <p className="text-xs text-muted mt-3">
-              We'll use your X profile to create your unique Love Persona
-            </p>
+
           </div>
         </CardContent>
       </Card>

@@ -8,19 +8,6 @@ import { Button } from '@/components/ui/button'
 export default function Home() {
   return (
     <div className="min-h-screen bg-primary">
-      {/* Header */}
-      <div className="px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: 'var(--accent)'}}>
-            <Heart className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-2xl font-bold text-primary">
-            BlockFlirt
-          </span>
-        </div>
-        <ConnectButton />
-      </div>
-
       {/* Hero Section */}
       <div className="max-w-md mx-auto px-6 py-12">
         {/* Main Card */}

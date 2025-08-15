@@ -8,13 +8,13 @@ export const mockUsers: UserProfile[] = [
     age: 28,
     interests: ["crypto", "art", "technology"],
     bio: "",
-    profileImageUrl: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=400&h=400&fit=crop&crop=face",
+    profileImageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
     onchainData: {
       nfts: [],
       tokens: [],
       transactions: [],
       totalValue: 0,
-      favoriteChains: ["Ethereum", "Polygon"]
+      favoriteChains: ["Mantle"]
     },
     twitterData: {
       username: "alexacrypto",
@@ -51,7 +51,7 @@ export const mockUsers: UserProfile[] = [
       tokens: [],
       transactions: [],
       totalValue: 0,
-      favoriteChains: ["Polygon", "Arbitrum"]
+      favoriteChains: ["Mantle"]
     },
     twitterData: {
       username: "marcusbeats",
@@ -88,7 +88,7 @@ export const mockUsers: UserProfile[] = [
       tokens: [],
       transactions: [],
       totalValue: 0,
-      favoriteChains: ["Ethereum", "Celo"]
+      favoriteChains: ["Mantle"]
     },
     twitterData: {
       username: "sophiegreen",
@@ -125,7 +125,7 @@ export const mockUsers: UserProfile[] = [
       tokens: [],
       transactions: [],
       totalValue: 0,
-      favoriteChains: ["Ethereum", "Base"]
+      favoriteChains: ["Mantle"]
     },
     twitterData: {
       username: "davidcodes",

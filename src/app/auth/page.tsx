@@ -28,10 +28,10 @@ export default function AuthPage() {
       <div className="max-w-lg mx-auto px-6 py-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-high-contrast mb-2">
-            Connect your X profile
+            Connect your wallet
           </h1>
           <p className="text-medium-contrast">
-            Connect your X account to create your Love Persona and find meaningful connections
+            Connect your wallet to create your Love Persona and find meaningful connections
           </p>
         </div>
         

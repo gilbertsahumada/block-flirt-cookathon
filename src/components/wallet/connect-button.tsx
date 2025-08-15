@@ -1,12 +1,9 @@
 "use client";
-
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { AtSign, User, ExternalLink } from "lucide-react";
-import { useAccount, useWallet, useModal, useLogout } from "@getpara/react-sdk";
+import { AtSign, User, ExternalLink, Loader2 } from "lucide-react";
+import { useWallet, useModal, useLogout } from "@getpara/react-sdk";
 
 export function ConnectButton() {
-  const { data: account, isLoading: accountLoading } = useAccount();
   const { data: wallet, isLoading: walletLoading } = useWallet();
   const { openModal } = useModal();
   const { logout } = useLogout();
@@ -19,7 +16,19 @@ export function ConnectButton() {
     logout();
   };
 
-  if (wallet?.address && wallet?.userId) {
+  // Consider connected if wallet address exists
+  const isConnected = Boolean(wallet?.address);
+
+  if (walletLoading) {
+    return (
+      <Button size="sm" className="btn-secondary" disabled>
+        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+        Connecting
+      </Button>
+    );
+  }
+
+  if (isConnected) {
     return (
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 text-secondary">
@@ -47,7 +56,7 @@ export function ConnectButton() {
       className="btn-primary px-6 py-2 text-sm font-semibold rounded-xl"
     >
       <AtSign className="w-4 h-4 mr-2" />
-      Connect with X
+      Connect Your Wallet
     </Button>
   );
 }

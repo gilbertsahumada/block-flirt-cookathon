@@ -25,19 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                document.documentElement.classList.add('dark');
-                document.documentElement.style.colorScheme = 'dark';
-              })();
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+      <head>{/* removed script that mutated <html> to avoid hydration mismatch */}</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground dark`}
       >

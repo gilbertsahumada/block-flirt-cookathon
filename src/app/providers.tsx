@@ -3,8 +3,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Environment, ParaProvider, ParaModal } from "@getpara/react-sdk";
 import "@getpara/react-sdk/styles.css";
 import { useState } from "react";
-import { DarkModeForcer } from "@/components/dark-mode-forcer";
 import { mantle } from "wagmi/chains";
+import { env } from "process";
 
 const apiKey = process.env.NEXT_PUBLIC_PARA_API_KEY
 
@@ -25,7 +25,7 @@ export function Providers({
       <ParaProvider
         paraClientConfig={{
           apiKey: apiKey!,
-          env: "beta" as Environment,
+          env: Environment.PRODUCTION,
         }}
         paraModalConfig={{
           disableEmailLogin: true,
@@ -44,7 +44,6 @@ export function Providers({
           appName: "BlockFlirt",
         }}
       >
-        <DarkModeForcer />
         {children}
         <ParaModal />
       </ParaProvider>

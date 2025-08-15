@@ -85,7 +85,8 @@ html { color-scheme: dark; }
 body { background-color: var(--background); color: var(--foreground); }
 
 /* Legacy dark utilities (kept for backward compatibility) */
-.bg-primary { background-color: var(--bg-primary) !important; }
+/* Removed .bg-primary override because it conflicts with Tailwind's bg-primary (used by buttons and surfaces) */
+/* .bg-primary { background-color: var(--bg-primary) !important; } */
 .bg-secondary { background-color: var(--bg-secondary) !important; }
 .bg-card { background-color: var(--bg-card) !important; }
 .text-primary { color: var(--text-primary) !important; }
